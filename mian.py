@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, render_template_string, request
 import a
 import like
+from werkzeug.wrappers import Request
 
 app = Flask(__name__)
 a_app = a.create_app()
@@ -17,17 +18,15 @@ def index():
 
 @app.route('/analyze', methods=['GET', 'POST'])
 def analyze():
-    with a_app.test_request_context('/'):
-        if request.method == 'POST':
-            return a_app.full_dispatch_request()
-        return a_app.full_dispatch_request()
+    with a_app.test_request_context(request.path, method=request.method, data=request.form):
+        response = a_app.full_dispatch_request()
+        return response.get_data(as_text=True)
 
 @app.route('/choose_team', methods=['GET', 'POST'])
 def choose_team():
-    with like_app.test_request_context('/choose_team'):
-        if request.method == 'POST':
-            return like_app.full_dispatch_request()
-        return like_app.full_dispatch_request()
+    with like_app.test_request_context(request.path, method=request.method, data=request.form):
+        response = like_app.full_dispatch_request()
+        return response.get_data(as_text=True)
 
 html_template = """
 <!DOCTYPE html>
@@ -42,7 +41,7 @@ html_template = """
         <h1>Soccer Match Analyzer - Main Page</h1>
         <form method="post">
             <button type="submit" name="analyze">분석</button>
-            <button type="submit" name="choose_team">좋아하는 팀 선택</button>
+            <button type="submit" name="choose_team">좋아하는 리그 선택</button>
         </form>
     </div>
 </body>
