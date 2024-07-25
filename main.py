@@ -78,6 +78,7 @@ def index():
         analysis = analyze_match(match_info)
     return render_template_string(html_template, analysis=analysis)
 
+
 html_template = """
 <!DOCTYPE html>
 <html lang="en">
