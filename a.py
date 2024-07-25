@@ -18,7 +18,7 @@ def create_app():
     def analyze_match(match_info):
         # OpenAI API를 사용하여 분석 요청
         response = openai.ChatCompletion.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are an expert in analyzing soccer matches."},
                 {"role": "user", "content": f"Analyze the match: {match_info}"},
@@ -32,8 +32,8 @@ def create_app():
         analysis = response.choices[0].message['content'].strip()
         return analysis
 
-    @app.route('/', methods=['GET', 'POST'])
-    def index():
+    @app.route('/analyze', methods=['GET', 'POST'])
+    def analyze():
         analysis = ""
         if request.method == 'POST':
             match_info = request.form['match_info']
@@ -69,4 +69,4 @@ html_template = """
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(port=5000, debug=True)
+    app.run(port=5001, debug=True)
