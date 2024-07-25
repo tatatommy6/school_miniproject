@@ -18,7 +18,7 @@ def create_app():
     def analyze_match(match_info):
         # OpenAI API를 사용하여 분석 요청
         response = openai.ChatCompletion.create(
-            model="gpt-4o",
+            model="gpt-4",
             messages=[
                 {"role": "system", "content": "You are an expert in analyzing soccer matches."},
                 {"role": "user", "content": f"Analyze the match: {match_info}"},
