@@ -49,9 +49,66 @@ html_template = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soccer Match Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+        }
+        .result h2 {
+            color: #495057;
+        }
+    </style>
 </head>
 <body>
-    <div class="content">
+    <div class="container">
         <h1>Soccer Match Analyzer</h1>
         <form method="post">
             <label for="match_info">분석할 경기를 입력해주세요 (예: 몇월 몇일 어떤팀 대 어떤팀 경기):</label><br>
@@ -59,8 +116,10 @@ html_template = """
             <button type="submit">분석 요청</button>
         </form>
         {% if analysis %}
-        <h2>분석 결과:</h2>
-        <p>{{ analysis }}</p>
+        <div class="result">
+            <h2>분석 결과:</h2>
+            <p>{{ analysis }}</p>
+        </div>
         {% endif %}
     </div>
 </body>

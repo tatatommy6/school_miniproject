@@ -24,7 +24,7 @@ def get_team_data(team):
         formatted_teams = []
         for team in data['teams']:
             formatted_team = f"""
-            <div>
+            <div class="team">
                 <h2>{team['name']} ({team['shortName']})</h2>
                 <img src="{team['crestUrl']}" alt="Team Crest" width="100"><br>
                 <strong>Address:</strong> {team['address']}<br>
@@ -49,12 +49,58 @@ team_template = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Favorite Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        select, button {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <div class="content">
+    <div class="container">
         <h1>Choose Your Favorite Team</h1>
         <form method="post">
-            <label for="favorite_team">좋아하는 라그를 선택하세요:</label><br>
+            <label for="favorite_team">좋아하는 팀을 선택하세요:</label><br>
             <select id="favorite_team" name="favorite_team">
                 <option value="PL">PL</option>
                 <option value="BL1">Bundesliga</option>
@@ -75,9 +121,51 @@ result_template = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .team {
+            margin-bottom: 20px;
+        }
+        .team h2 {
+            margin: 0;
+            color: #007bff;
+        }
+        .team img {
+            margin: 10px 0;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        a {
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="content">
+    <div class="container">
         <h1>Team Data</h1>
         {{ team_data|safe }}
         <a href="{{ url_for('choose_team') }}">Go Back</a>
