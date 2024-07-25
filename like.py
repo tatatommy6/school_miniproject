@@ -49,52 +49,6 @@ team_template = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Favorite Team</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            margin-top: 50px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        label {
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-        select, button {
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 100%;
-            max-width: 300px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -112,57 +66,63 @@ team_template = """
     </div>
 </body>
 </html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        margin-top: 50px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    label {
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+    select, button {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+        max-width: 300px;
+    }
+    button {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
 """
 
 result_template = """
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Data</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            margin-top: 50px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .team {
-            margin-bottom: 20px;
-        }
-        .team h2 {
-            margin: 0;
-            color: #007bff;
-        }
-        .team img {
-            margin: 10px 0;
-        }
-        hr {
-            border: 0;
-            border-top: 1px solid #ddd;
-            margin: 20px 0;
-        }
-        a {
-            color: #007bff;
-        }
-        a:hover {
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -172,6 +132,49 @@ result_template = """
     </div>
 </body>
 </html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        margin-top: 50px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .team {
+        margin-bottom: 20px;
+    }
+    .team h2 {
+        margin: 0;
+        color: #007bff;
+    }
+    .team img {
+        margin: 10px 0;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 20px 0;
+    }
+    a {
+        color: #007bff;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+</style>
 """
 
 def create_app():
